@@ -1,29 +1,28 @@
 import 'regenerator-runtime/runtime'
-import is from "ramda/src/is"
-import last from "ramda/src/last"
-import {UUID} from "hurdak/uuid"
-import summarize from "hurdak/summarize"
-import {DATETIME} from "hurdak/datetime"
+import is from 'ramda/src/is'
+import last from 'ramda/src/last'
+import isNil from 'ramda/src/isNil'
+import {UUID} from 'hurdak/uuid'
+import summarize from 'hurdak/summarize'
+import {DATETIME} from 'hurdak/datetime'
 
 // Utils
 
 const reprType = x => {
   const t = typeof x
 
-  if (["undefined", "boolean"].indexOf(t) !== -1) {
+  if (['undefined', 'boolean'].indexOf(t) !== -1) {
     return t
-  } else if (t === "number" && isNaN(x)) {
-    return "NaN"
+  } else if (t === 'number' && isNaN(x)) {
+    return 'NaN'
   } else if (x === null) {
-    return "null"
-  } else if (x.constructor.name === "Function") {
+    return 'null'
+  } else if (x.constructor.name === 'Function') {
     return x.name
-  } else {
-    return x.constructor.name
   }
-}
 
-const isEmpty = x => [undefined, null].indexOf(x) !== -1
+  return x.constructor.name
+}
 
 const schemaError = (code, path, extra) => ({code, path, ...extra})
 
@@ -60,12 +59,12 @@ const normalize = schema => {
 
   // Arrays are special cased
   if (is(Array, schema)) {
-    return new Schema("arr", {items: schema[0]})
+    return new Schema('arr', {items: schema[0]})
   }
 
   // Objects are special cased
   if (!is(Function, schema) && is(Object, schema)) {
-    return new Schema("obj", {properties: schema})
+    return new Schema('obj', {properties: schema})
   }
 
   throw new Error(`Could not normalize "${reprType(schema)}"`)
@@ -80,16 +79,16 @@ const cloneSchema = (schema, meta) => {
 // Error codes
 
 export const ERROR_CODE = {
-  TYPE_ERROR: "schema/type-error",
-  MISSING_KEY: "schema/missing-key",
-  MISSING_VALUE: "schema/missing-value",
-  MIN_LENGTH: "schema/min-length",
-  ENUM: "schema/enum",
+  TYPE_ERROR: 'schema/type-error',
+  MISSING_KEY: 'schema/missing-key',
+  MISSING_VALUE: 'schema/missing-value',
+  MIN_LENGTH: 'schema/min-length',
+  ENUM: 'schema/enum',
 }
 
 // Top-level helpers
 
-export function* iterErrors(schema, data, path) {
+export function *iterErrors(schema, data, path) {
   schema = normalize(schema)
 
   const config = allTypes[schema.type]
@@ -119,7 +118,7 @@ export function* iterErrors(schema, data, path) {
   }
 
   if (iterTypeErrors) {
-    for (let error of iterTypeErrors(schema, data, path)) {
+    for (const error of iterTypeErrors(schema, data, path)) {
       yield error
     }
   }
@@ -138,25 +137,25 @@ export function getError(schema, data, path = []) {
 
 // Type implementations
 
-defType("nil", {
+defType('nil', {
   typeIsValid: v => v === null,
 })
 
-defType("any", {
+defType('any', {
   typeIsValid: v => true,
 })
 
-defType("int", {
+defType('int', {
   typeIsValid: v => is(Number, v) && v % 1 === 0,
 })
 
-defType("num", {
+defType('num', {
   typeIsValid: v => is(Number, v),
 })
 
-defType("str", {
+defType('str', {
   typeIsValid: v => is(String, v),
-  iterTypeErrors: function* iterTypeErrors(schema, data, path) {
+  iterTypeErrors: function *iterTypeErrors(schema, data, path) {
     if (schema.minLength && data.length < schema.minLength) {
       yield schemaError(ERROR_CODE.MIN_LENGTH, path, {
         message: `${last(path)} must be at least ${schema.minLength} characters long`,
@@ -165,64 +164,64 @@ defType("str", {
   },
 })
 
-defType("bool", {
+defType('bool', {
   typeIsValid: v => is(Boolean, v),
 })
 
-defType("true", {
+defType('true', {
   typeIsValid: v => v === true,
 })
 
-defType("false", {
+defType('false', {
   typeIsValid: v => v === false,
 })
 
-defType("uuid", {
+defType('uuid', {
   typeIsValid: v => is(String, v) && Boolean(v.match(UUID)),
 })
 
-defType("datetime", {
+defType('datetime', {
   typeIsValid: v =>
     is(Date, v) || (is(String, v) && Boolean(v.match(DATETIME))),
 })
 
-defType("arr", {
+defType('arr', {
   typeIsValid: v => is(Array, v),
-  iterTypeErrors: function* iterTypeErrors(schema, data, path) {
+  iterTypeErrors: function *iterTypeErrors(schema, data, path) {
     for (let i = 0; i < data.length; i++) {
-      for (let error of iterErrors(schema.items, data[i], path.concat(i))) {
+      for (const error of iterErrors(schema.items, data[i], path.concat(i))) {
         yield error
       }
     }
   },
 })
 
-defType("obj", {
+defType('obj', {
   typeIsValid: v => is(Object, v),
-  iterTypeErrors: function* iterTypeErrors(schema, data, path) {
-    for (let k of schema.requiredKeys || []) {
+  iterTypeErrors: function *iterTypeErrors(schema, data, path) {
+    for (const k of schema.requiredKeys || []) {
       if (data[k] === undefined) {
         yield schemaError(ERROR_CODE.MISSING_KEY, path.concat(k), {
-          expected: "any",
-          actual: "undefined",
+          expected: 'any',
+          actual: 'undefined',
           message: `${k} is a required key`,
         })
       }
     }
 
-    for (let k of schema.requiredValues || []) {
-      if (isEmpty(data[k])) {
+    for (const k of schema.requiredValues || []) {
+      if (isNil(data[k])) {
         yield schemaError(ERROR_CODE.MISSING_VALUE, path.concat(k), {
-          expected: "any",
+          expected: 'any',
           actual: reprType(data[k]),
           message: `${k} is a required value`,
         })
       }
     }
 
-    for (let k in schema.properties || {}) {
-      if (!isEmpty(data[k])) {
-        for (let error of iterErrors(
+    for (const k in schema.properties || {}) {
+      if (!isNil(data[k])) {
+        for (const error of iterErrors(
           schema.properties[k],
           data[k],
           path.concat(k)
@@ -233,10 +232,10 @@ defType("obj", {
     }
 
     if (schema.closed) {
-      for (let k in data) {
+      for (const k in data) {
         if (!schema.properties[k]) {
           yield schemaError(ERROR_CODE.EXTRA_KEY, path.concat(k), {
-            expected: "undefined",
+            expected: 'undefined',
             actual: reprType(data[k]),
             message: `${k} is not an allowed key`,
           })
@@ -249,8 +248,8 @@ defType("obj", {
 export default new Proxy(
   {
     ...ERROR_CODE,
-    arr: (items, meta) => new Schema("arr", {items, ...meta}),
-    obj: (properties, meta) => new Schema("obj", {properties, ...meta}),
+    arr: (items, meta) => new Schema('arr', {items, ...meta}),
+    obj: (properties, meta) => new Schema('obj', {properties, ...meta}),
     open: schema => cloneSchema(schema, {closed: false}),
     closed: schema => cloneSchema(schema, {closed: true}),
     strict: schema => {

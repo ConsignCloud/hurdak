@@ -1,1 +1,3 @@
-export default m => () => { throw new Error(m) }
+export default m => () => {
+  throw new Error(m)
+}

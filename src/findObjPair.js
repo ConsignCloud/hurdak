@@ -1,3 +1,5 @@
+/* eslint consistent-return: 0 */
+
 import curryN from 'hurdak/curryN'
 
 export default curryN(2, (f, x) => {

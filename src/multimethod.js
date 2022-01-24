@@ -1,6 +1,6 @@
-import is from "ramda/src/is"
+import is from 'ramda/src/is'
 
-const Default = "multimethod/Default"
+const Default = 'multimethod/Default'
 
 class MultiMethod {
   constructor(name, dispatch, methods = {}) {
@@ -39,7 +39,7 @@ class MultiMethod {
     return this
   }
   addMethods(m) {
-    for (let k in m) {
+    for (const k in m) {
       this.addMethod(k, m[k])
     }
   }

@@ -13,7 +13,7 @@ const _parseFloat = (x, fallback = 0) => {
 }
 
 const _parseInt = (x, fallback = 0) =>
-  parseInt(parseFloatString(x, fallback), 10)
+  parseInt(_parseFloat(x, fallback), 10)
 
 export default {
   parseFloat: _parseFloat,

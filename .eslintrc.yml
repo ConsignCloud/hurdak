@@ -80,7 +80,7 @@
     generator-star-spacing: "error"
     getter-return: "error"
     global-require: "error"
-    guard-for-in: "error"
+    guard-for-in: "off"
     handle-callback-err: "error"
     id-blacklist: "error"
     id-length: "off"
@@ -108,7 +108,7 @@
     max-lines: "error"
     max-nested-callbacks: "error"
     max-params: ["error", 4]
-    max-statements: "error"
+    max-statements: "off"
     max-statements-per-line: "error"
     multiline-ternary: "off"
     new-cap: "error"
@@ -166,7 +166,7 @@
     no-octal-escape: "error"
     no-param-reassign: "off"
     no-path-concat: "error"
-    no-plusplus: "error"
+    no-plusplus: "off"
     no-process-env: "off"
     no-process-exit: "error"
     no-proto: "error"
@@ -191,13 +191,15 @@
     no-throw-literal: "error"
     no-trailing-spaces: "error"
     no-undef-init: "error"
-    no-undefined: "error"
-    no-underscore-dangle: "error"
+    no-undefined: "off"
+    no-underscore-dangle: "off"
     no-unmodified-loop-condition: "error"
     no-unneeded-ternary: "error"
     no-unused-expressions: "error"
     no-unused-vars:
       - "error"
+      -
+        args: "none"
     no-use-before-define: "off"
     no-useless-call: "error"
     no-useless-computed-key: "error"
@@ -246,7 +248,7 @@
     semi-spacing: "error"
     semi-style:
       - "error"
-      - "last"
+      - "first"
     sort-imports: "off"
     sort-keys: "off"
     sort-vars: "error"
@@ -278,4 +280,3 @@
     yoda:
       - "error"
       - "never"
-
