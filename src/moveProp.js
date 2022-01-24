@@ -2,5 +2,5 @@ import omit from 'ramda/src/omit'
 import curryN from './curryN'
 import copyProp from './copyProp'
 
-export default curryN(2, (fromKey, toKey, obj) =>
+export default curryN(3, (fromKey, toKey, obj) =>
   omit([fromKey], copyProp(fromKey, toKey, obj)))

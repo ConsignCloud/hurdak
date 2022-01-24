@@ -1,4 +1,6 @@
-export default (kf, vf, x) => {
+import curryN from './curryN'
+
+export default curryN(2, (kf, vf, x) => {
   const r = {}
 
   for (const k in x) {
@@ -6,4 +8,4 @@ export default (kf, vf, x) => {
   }
 
   return r
-}
+})

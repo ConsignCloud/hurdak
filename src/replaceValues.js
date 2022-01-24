@@ -3,5 +3,5 @@ import always from 'ramda/src/always'
 import mapObjIndexed from 'ramda/src/mapObjIndexed'
 import curryN from './curryN'
 
-export default curryN(2, (f, v, x) =>
+export default curryN(3, (f, v, x) =>
   mapObjIndexed(when(f, always(v)), x))

@@ -3,4 +3,4 @@ import assocPath from 'ramda/src/assocPath'
 import merge from './merge'
 import curryN from './curryN'
 
-export default curryN(2, (p, v, x) => assocPath(p, merge(path(p, x), v), x))
+export default curryN(3, (p, v, x) => assocPath(p, merge(path(p, x), v), x))

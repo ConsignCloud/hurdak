@@ -1,4 +1,4 @@
 import omit from 'ramda/src/omit'
 import curryN from './curryN'
 
-export default curryN(2, (a, b, x) => ({...omit([a], x), [b]: x[a]}))
+export default curryN(3, (a, b, x) => ({...omit([a], x), [b]: x[a]}))
