@@ -1,6 +1,6 @@
 /* eslint consistent-return: 0 */
 
-import curryN from 'hurdak/curryN'
+import curryN from './curryN'
 
 export default curryN(2, (f, x) => {
   const entries = Object.entries(x)

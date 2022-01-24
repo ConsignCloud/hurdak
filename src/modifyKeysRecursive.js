@@ -1,7 +1,7 @@
 import is from 'ramda/src/is'
-import curryN from 'hurdak/curryN'
-import isObject from 'hurdak/isObject'
-import mapObj from 'hurdak/mapObj'
+import curryN from './curryN'
+import isObject from './isObject'
+import mapObj from './mapObj'
 
 const modifyKeysRecursive = curryN(2, (f, x) => {
   if (is(Array, x)) {

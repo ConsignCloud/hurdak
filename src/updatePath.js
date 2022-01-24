@@ -1,6 +1,6 @@
 import path from 'ramda/src/path'
 import assocPath from 'ramda/src/assocPath'
-import curryN from 'hurdak/curryN'
+import curryN from './curryN'
 
 export default curryN(3, (p, f, x) =>
   // Provide the value at the path, the value's immediate parent, and the root

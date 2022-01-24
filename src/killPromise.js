@@ -1,4 +1,4 @@
-import noopPromise from 'hurdak/noopPromise'
+import noopPromise from './noopPromise'
 
 export default p => {
   p.catch(() => undefined)

@@ -2,9 +2,9 @@ import 'regenerator-runtime/runtime'
 import is from 'ramda/src/is'
 import last from 'ramda/src/last'
 import isNil from 'ramda/src/isNil'
-import {UUID} from 'hurdak/uuid'
-import summarize from 'hurdak/summarize'
-import {DATETIME} from 'hurdak/datetime'
+import {UUID} from './uuid'
+import summarize from './summarize'
+import {DATETIME} from './datetime'
 
 // Utils
 

@@ -1,4 +1,4 @@
-import curryN from 'hurdak/curryN'
+import curryN from './curryN'
 
 export default curryN(2, (chunkLength, coll) => {
   const result = []

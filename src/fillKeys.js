@@ -1,5 +1,5 @@
 import clone from 'ramda/src/clone'
-import curryN from 'hurdak/curryN'
+import curryN from './curryN'
 
 export default curryN(2, (ks, x) => {
   const r = {}

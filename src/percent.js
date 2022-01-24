@@ -1,6 +1,6 @@
 import pipe from 'ramda/src/pipe'
-import round from 'hurdak/round'
-import Numbers from 'hurdak/numbers'
+import round from './round'
+import Numbers from './numbers'
 
 const million = Math.pow(10, 10)
 

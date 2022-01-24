@@ -1,4 +1,4 @@
-import toPascal from 'hurdak/toPascal'
+import toPascal from './toPascal'
 
 export default x => {
   const [first, ...rest] = toPascal(x)

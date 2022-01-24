@@ -1,5 +1,5 @@
 import join from 'ramda/src/join'
-import Numbers from 'hurdak/numbers'
+import Numbers from './numbers'
 
 let symbol = '$'
 
