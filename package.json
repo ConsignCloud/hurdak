@@ -1,6 +1,6 @@
 {
   "name": "hurdak",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Create svgs for use as label templates",
   "main": "lib/hurdak.js",
