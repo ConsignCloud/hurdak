@@ -3,7 +3,7 @@ import defmulti from 'hurdak/multimethod'
 
 describe('multimethod', () => {
   const f = defmulti('test', x => x, {
-    a: () => 1
+    a: () => 1,
   })
 
   f.addMethod('b', () => 2)

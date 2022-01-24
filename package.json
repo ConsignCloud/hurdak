@@ -2,30 +2,24 @@
   "name": "hurdak",
   "version": "0.0.3",
   "private": false,
-  "description": "Create svgs for use as label templates",
-  "main": "lib/hurdak.js",
+  "description": "A handy utility library to complement ramda.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/staab/hurdak.git"
   },
   "keywords": [
-    "label",
-    "editor",
-    "svg",
-    "template"
+    "utility"
   ],
   "author": "Jon Staab",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/staab/templatizer-lib/issues"
+    "url": "https://github.com/ConsignCloud/hurdak/issues"
   },
-  "homepage": "https://github.com/staab/hurdak",
+  "homepage": "https://github.com/ConsignCloud/hurdak",
+  "files": [
+    "src/*"
+  ],
   "scripts": {
-    "build": "npm-run-all build:clean build:production build:dev",
-    "build:production": "webpack --progress --colors --env build",
-    "build:dev": "webpack --progress --colors --env dev",
-    "build:clean": "rm -rf lib",
-    "build:watch": "npm run build:dev -- --watch",
     "test": "NODE_ENV=test mocha --compilers js:babel-register --colors ./test/**/*.test.js",
     "test:watch": "npm run test -- -w",
     "lint": "eslint src && eslint test",
@@ -44,13 +38,10 @@
     "chai": "3.5.0",
     "eslint": "^4.6.1",
     "eslint-loader": "1.7.1",
-    "expect": "^21.0.2",
-    "husky": "^0.14.3",
     "mocha": "3.3.0",
     "npm-run-all": "^4.1.1",
     "regenerator-runtime": "^0.13.9",
-    "webpack": "3.1.0",
-    "yargs": "^17.3.1"
+    "webpack": "3.1.0"
   },
   "dependencies": {
     "ramda": "^0.28.0",
