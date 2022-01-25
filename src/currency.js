@@ -1,4 +1,3 @@
-import join from 'ramda/src/join'
 import Numbers from './numbers'
 
 let symbol = '$'
@@ -12,10 +11,7 @@ const setSymbol = s => {
 const formatNumeric = x => {
   const [dollars, cents] = parseFloat(x / 100).toFixed(2).split('.')
 
-  return join('', [
-    dollars.split('').reverse().reduce((acc, n, i) => n + (i && !(i % 3) ? ',' : '') + acc, '.'),
-    cents,
-  ])
+  return [Numbers.commaFormat(dollars), cents].join('.')
 }
 
 const parseNumeric = display =>

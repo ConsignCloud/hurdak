@@ -9,7 +9,14 @@ const _parseFloat = (x, fallback = 0) => {
 const _parseInt = (x, fallback = 0) =>
   parseInt(_parseFloat(x, fallback), 10)
 
+
+export const commaFormat = x =>
+  String(x).split('')
+    .reverse()
+    .reduce((acc, n, i) => n + (i && !(i % 3) ? ',' : '') + acc)
+
 export default {
   parseFloat: _parseFloat,
   parseInt: _parseInt,
+  commaFormat,
 }

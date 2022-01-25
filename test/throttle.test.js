@@ -10,10 +10,10 @@ describe('throttle', () => {
     setTimeout(f, 5)
     setTimeout(f, 10)
     setTimeout(f, 15)
-    setTimeout(f, 30)
+    setTimeout(f, 35)
     setTimeout(() => {
       assert.equal(i, 2)
       done()
-    }, 40)
+    }, 50)
   })
 })
