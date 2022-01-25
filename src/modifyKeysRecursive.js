@@ -1,6 +1,6 @@
 import is from 'ramda/src/is'
 import curryN from './curryN'
-import isObject from './isObject'
+import isPojo from './isPojo'
 import mapObj from './mapObj'
 
 const modifyKeysRecursive = curryN(2, (f, x) => {
@@ -8,7 +8,7 @@ const modifyKeysRecursive = curryN(2, (f, x) => {
     return x.map(v => modifyKeysRecursive(f, v))
   }
 
-  if (isObject(x)) {
+  if (isPojo(x)) {
     return mapObj(f, v => modifyKeysRecursive(f, v), x)
   }
 
