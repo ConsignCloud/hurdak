@@ -1,3 +1,5 @@
+/* eslint no-useless-call: 0 */
+
 import is from 'ramda/src/is'
 
 const Default = 'multimethod/Default'
@@ -10,7 +12,11 @@ class MultiMethod {
 
     this.addMethods(methods)
   }
-  call(...args) {
+  // Dorky method signatures for compatibility with function methods
+  apply(_, args) {
+    return this.call(null, ...args)
+  }
+  call(_, ...args) {
     const dv = this.dispatch(...args)
     const method = this.getMethod(dv) || this.getDefaultMethod()
 
@@ -62,7 +68,7 @@ class MultiMethod {
 
 export default function defmulti(...config) {
   const mm = new MultiMethod(...config)
-  const call = (...args) => mm.call(...args)
+  const call = (...args) => mm.call(null, ...args)
 
   return new Proxy(call, {
     get(target, name) {
