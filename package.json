@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/ConsignCloud/hurdak",
   "files": [
-    "src/*"
+    "src/*",
+    "lib/*"
   ],
   "scripts": {
     "test": "NODE_ENV=test mocha --compilers js:babel-register --colors ./test/**/*.test.js",
