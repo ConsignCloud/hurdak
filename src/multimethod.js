@@ -1,6 +1,6 @@
 /* eslint no-useless-call: 0 */
 
-import is from 'ramda/src/is'
+import {is} from 'ramda'
 
 const Default = 'multimethod/Default'
 

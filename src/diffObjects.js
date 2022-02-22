@@ -1,4 +1,4 @@
-import equals from 'ramda/src/equals'
+import {equals} from 'ramda'
 
 export default (obj1, obj2) => {
   const diff = []

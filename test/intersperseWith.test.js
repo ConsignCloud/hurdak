@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import intersperse from 'ramda/src/intersperse'
+import {intersperse} from 'ramda'
 import intersperseWith from 'hurdak/intersperseWith'
 
 describe('intersperseWith', () => {

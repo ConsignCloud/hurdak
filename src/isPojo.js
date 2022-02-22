@@ -1,3 +1,3 @@
-import prop from 'ramda/src/prop'
+import {prop} from 'ramda'
 
 export default x => prop('constructor', x) === Object

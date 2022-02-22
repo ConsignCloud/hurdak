@@ -1,3 +1,3 @@
-import keys from 'ramda/src/keys'
+import {keys} from 'ramda'
 
 export default x => keys(x).length

@@ -1,4 +1,4 @@
-import pipe from 'ramda/src/pipe'
+import {pipe} from 'ramda'
 import round from './round'
 import Numbers from './numbers'
 

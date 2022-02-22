@@ -1,4 +1,4 @@
-import clone from 'ramda/src/clone'
+import {clone} from 'ramda'
 import curryN from './curryN'
 
 export default curryN(2, (ks, x) => {

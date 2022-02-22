@@ -1,4 +1,4 @@
-import is from 'ramda/src/is'
+import {is} from 'ramda'
 
 const summarize = (target, depth = 4) => {
   if (depth === 0 && (is(Array, target) || is(Object, target))) {

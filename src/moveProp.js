@@ -1,4 +1,4 @@
-import omit from 'ramda/src/omit'
+import {omit} from 'ramda'
 import curryN from './curryN'
 import copyProp from './copyProp'
 

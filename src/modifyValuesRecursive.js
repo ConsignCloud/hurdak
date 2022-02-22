@@ -1,4 +1,4 @@
-import is from 'ramda/src/is'
+import {is} from 'ramda'
 import isPojo from './isPojo'
 import curryN from './curryN'
 import mapValues from './mapValues'

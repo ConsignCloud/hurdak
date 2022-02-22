@@ -1,4 +1,4 @@
-import last from 'ramda/src/last'
+import {last} from 'ramda'
 
 export default (xs, conj = 'and', n = 6) => {
   if (xs.length === 0) {
