@@ -36,4 +36,8 @@ describe('Numbers.commaFormat', () => {
   it('formats long numbers properly', () => {
     assert.equal(Numbers.commaFormat(123456789), '123,456,789')
   })
+
+  it('formats negative numbers properly', () => {
+    assert.equal(Numbers.commaFormat(-100200), '-100,200')
+  })
 })

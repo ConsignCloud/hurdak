@@ -1,5 +1,4 @@
-import {path} from 'ramda'
-import {assocPath} from 'ramda'
+import {path, assocPath} from 'ramda'
 import mergeRight from './mergeRight'
 import curryN from './curryN'
 

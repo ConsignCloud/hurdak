@@ -1,5 +1,4 @@
-import {path} from 'ramda'
-import {assocPath} from 'ramda'
+import {path, assocPath} from 'ramda'
 import curryN from './curryN'
 
 export default curryN(3, (p, f, x) =>

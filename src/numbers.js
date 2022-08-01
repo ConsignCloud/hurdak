@@ -14,6 +14,7 @@ export const commaFormat = x =>
   String(x).split('')
     .reverse()
     .reduce((acc, n, i) => n + (i && !(i % 3) ? ',' : '') + acc)
+    .replace('-,', '-')
 
 export default {
   parseFloat: _parseFloat,
